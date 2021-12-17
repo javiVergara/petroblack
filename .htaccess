@@ -1,0 +1,6 @@
+RewriteEngine On
+RewriteCond %{HTTPS} !=on
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301,NE]
+RewriteCond %{HTTP_HOST} ^www.expresosmendoza.fletesbenjamin.com.ar [NC]
+RewriteRule ^(.*)$ https://expresosmendoza.fletesbenjamin.com.ar/$1 [L,R=301]
+Header always set Content-Security-Policy "upgrade-insecure-requests;"
